@@ -1,0 +1,130 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{url}
+\usepackage{hyperref}
+
+\usetheme{AGH}
+
+\title[DICOM]{Format obrazów DICOM na podstawie przykładowych plików}
+
+\author[B. Bułat, T. Drzewiecki]{Bartłomiej Bułat, Tomasz Drzewiecki}
+
+\date[2012]{27.11.2012}
+
+\institute[AGH]
+{Wydział EAIiIB\\ 
+Katedra Automatyki
+}
+
+\setbeamertemplate{itemize item}{$\maltese$}
+
+\begin{document}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{titlepagepl}} % wersja polska
+ \begin{frame}
+   \titlepage
+ \end{frame}
+}
+
+%---------------------------------------------------------------------------
+
+\begin{frame}
+  \frametitle{Spis treści}
+  \tableofcontents
+\end{frame}
+
+\newcommand{\nextoc}{ \begin{frame}\frametitle{Spis treści}\tableofcontents[hidesubsections]\end{frame}}
+
+
+\section{Wstęp}
+\begin{frame}
+    \frametitle{Wstęp}
+
+\end{frame}
+
+\section{Język DICOM}
+\begin{frame}
+    \frametitle{Gramatyka DICOM}
+\begin{itemize}
+  \item Definicja 27 standardowych typów danych
+  \item VR (\emph{value representations}) są zdefiniowane w częsci PS3.5 standardu
+  \item VR określa dozwolone znaki i długość danych
+  \item Każdy VR jest posiada dwuliterowy skrót
+\end{itemize}
+\end{frame}
+
+%% TODO: Big/Little Endian?
+
+\begin{frame}
+    \frametitle{Słownik DICOM}
+\begin{itemize}
+  \item Definicja ponad 2000 \emph{atrybutów}, (\emph{elementów DICOM, dlementów danych DICOM})
+  \item Każdy element ma swój numer (\emph{tag}) opisany jako (Grupa,Element).
+  \item Każdy element odpowiada rzeczywistym danym medycznym
+  \item Każdy element ma przypisany VR
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Kodowanie elementów danych DICOM}
+
+
+\begin{itemize}
+  \item W formacie DICOM istnieją dwa sposoby kodowania elementów danych: \emph{Implicit} i \emph{Explicit}
+  \item Format \emph{Implicite} jest bardziej kompaktowy i działa w oparciu o słownik DICOM
+  \item Format \emph{Explicit} jest dłuższy, ale nie potrzebuje informacji ze słownika DICOM od poprawnego odczytu danych. Sam określa VR przechowywanych danych.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Format Implicit}
+\begin{itemize}
+  \item Nazwa grupy, 2 bajtowa liczba całkowita bez znaku
+  \item Numer elementy, 2 bajtowa liczba całkowita bez znaku
+  \item Długość danych, 4 bajtowa liczba całkowita L
+  \item Dane, Parzysta liczba L bajtów zawierająca dane  
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[allowframebreaks]
+  \frametitle{Format Explicit}
+
+Dla wszystkich VR oprócz OB, OW, OF, SQ, UT i UN:
+\begin{itemize}
+  \item Nazwa grupy, 2 bajtowa liczba całkowita bez znaku
+  \item Numer elementy, 2 bajtowa liczba całkowita bez znaku
+  \item VR, 2 znaki, 2 bajty
+  \item Długość danych, 2 bajtowa liczba całkowita L
+  \item Dane, Parzysta liczba L bajtów zawierająca dane  
+\end{itemize}
+
+\framebreak
+
+Dla OB, OW, OF, SQ, UT i UN:
+\begin{itemize}
+  \item Nazwa grupy, 2 bajtowa liczba całkowita bez znaku
+  \item Numer elementy, 2 bajtowa liczba całkowita bez znaku
+  \item VR, 2 znaki, 2 bajty
+  \item Zarezerwowane 2 bajty ustwione na wartość \texttt{0x0000}.
+  \item Długość danych, 2 bajtowa liczba całkowita L
+  \item Dane, Parzysta liczba L bajtów zawierająca dane  
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+    \vskip5em
+    \begin{center}
+        \Large{Dziękuję za uwagę!}
+    \end{center}
+\end{frame}
+
+\end{document}
+

@@ -119,15 +119,33 @@ Dla OB, OW, OF, SQ, UT i UN:
 \end{itemize}
 \end{frame}
 
+
 \include{brain}
 \include{echo}
+\include{esopecho}
+
+\section{Wnioski}
+\begin{frame}
+	Zdecydowanie największą cześć pliku zajmuje obraz właściwy, więc narzut danych opisujących obraz nie jest duży. Dzięki temu
+	\begin{itemize}
+		\item Przechowywanie obrazów w formacie DICOM w porówaniu do samych obrazów nie jest problemem,
+		\item Przesyłanie obrazów w formacie DICOM nie wprowadza znaczącego spowolnienia transmisji.
+	\end{itemize}
+\end{frame}
+\begin{frame}
+	Obraz w plikach DICOM zwykle (w dwóch plikach na trzy) jest przechowywany w formie nieskompresowanej. Jedynie przy użyciu mapy kolorów można zmniejszyć rozmiar pliku. Jednocześnie przy obrazach medycznych jakość jest istotna, dlatego nie powinno się używać kompresji stratnej.
+\end{frame}
+\begin{frame}
+	Standard DICOM pozwala dość dokładnie określić w jaki sposób powinien być wyświetlany obraz (m.in. za pomocą parametrów ,,Pixel aspect ratio'' czy ,,Pixel spacing'').
+\end{frame}
 
 \begin{frame}
     \vskip5em
     \begin{center}
-        \Large{Dziękuję za uwagę!}
+        \Large{Dziękujemy za uwagę!}
     \end{center}
 \end{frame}
 
 \end{document}
+
 

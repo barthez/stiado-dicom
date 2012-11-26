@@ -30,3 +30,11 @@
 *.vrb
 *.xdy
 *.tdo
+
+# Temp files
+#
+
+*.bak
+*~
+*.tmp
+

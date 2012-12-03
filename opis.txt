@@ -1,0 +1,21 @@
+US-RGB-8-esopecho.dcm:
+Plik US-RGB-8-esopecho.dcm przedstawia jeden obraz z badania Echokardiograficznego.
+
+Plik ten jest kodowany w formacie explicit. Jego wielkoœæ to oko³o 90kb, z czego danych obrazowych jest 9%%. Plik u¿ywa grupowania elementów danych.
+
+Jest to plik powsta³y podczas badania echokardiograficznego 5 listopada 1994 roku, o godzinie 14:30. Rejestracja zosta³a przeprowadzona przy pomocy urz¹dzenia Acme Products.
+
+W tym pliki dane pacjenta zosta³y usuniête, plik poddano anonimizacji.
+
+Pobieranie danych zosta³o zrealizowane za pomoc¹ protoko³u Quad Capture. Jest to protokó³ rejestracji dŸwiêku.
+
+Zawarty w pliku obraz jest obrazem nuer 107 z 2 serii danych.
+
+Parametry obrazu. Ka¿dy piksel jest zapisany za pomoc¹ trzech wartoœci. Pojedyncza wartoœæ odpowiada jednemu z kolorów: czerwonego, niebieskiego lub zielonego. Piksele u³o¿one s¹ obok siebie dla danego piksela. Rozmiar obrazu to 120 na 256 pikseli, z których ka¿dy ma kszta³t prostok¹ta o proporcjach boków 4 do 3. Zapisane wartoœci pikseli s¹ bez znaku.
+
+Wnioski:
+W plikach najwiêksz¹ czeœci¹ pod wzglêdem iloœci danych s¹ same obrazy, co oznacza, ¿e dane opisowe o obrazie, dane o pacjencie, badaniu, nie s¹ obci¹¿aj¹ce dany plik. Dziêki temu przechowywanie obrazów w formacie DICOM nie jest znacz¹co bardziej wymagaj¹ce ni¿ przechowywanie samych obrazów. Równie¿ przy transmisji obrazów najwiêcej danych jest o samym obrazie i nie powoduje to spowolnienia transmisji przez dane opisuj¹ce obraz.
+
+Obrazy w wiêkszoœci nie s¹ skompresowane. Jest to spowodowane tym, ¿e przy u¿yciu kompresji stratnej mo¿na by by³o straciæ wa¿ne informacje medyczne. W jednym z trzech plików zastosowano kompresjê z pomoc¹ u¿ycia mapy kolorów.
+
+Standard DICOM udostêpnia mo¿liwoœæ dok³adnego opisu jak powinien wygl¹daæ obraz. S³u¿¹ do tego specjalne parametry jak rozmiar piksela czy odleg³oœæ pomiêdzy pikselami.

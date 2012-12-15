@@ -38,11 +38,37 @@ które definują własne niestandardowe elementy. Format Explicite słuzży do t
 aby zapisać również VR co pozwala odczytać dane bez potrzeby otwierania
 słownika (choć i tak wtedy nie znamy przeznaczenia danych).
 
+\section{brain\_001.dcm}
+Plik brain\_001.dcm przedstawia jeden obraz wykonany podczas rezonansu
+magnetycznego głowy.
+
+Plik jest okdowany w formacie explicite, dane obrazowe to aż 98\% objętości
+pliku. Plik nie używa grupowania elementów.
+
+To badanie MRI zostało wykonane 16 marca 2001 roku, o godzinie 14:30 na
+urządzeniu SIGNA firmy GE Medical Systems.
+
+W pliku znajduja się częsiowe dane o pacjencie. Była to kobieta w wieku 28 lat,
+o wadze 61 (prawdopodobnie) kilogramów.
+
+Badanie zostało wykonene w technologi MRI 2D, grubość przekroju to $5 cm$,
+uzyta siła pola magnetycznego, to 1.5. Pacjent podczas badania był w pozycji na
+wznak z głową do przodu.
+
+Obraz ma rozmiar 256x256 pikseli, gdzie odstęp między nimi to $0.859375 mm$.
+Wartości mieszczą się w zakresie od 0 do 884. Element DICOM \emph{(0028,0103) Pixel
+Representation} mówi o sposobie zapisu każdej próbki i może przyjmować 2
+wartości: $0000H$ - zapis jako \emph{unsigned integer} lib $0001H$ - zapis w
+kodzie uzupełnień do dwóch. W tym pliku uzywany jest zapis w kodzie uzupełnień
+do dwóch. Element \emph{(0028,0100) Bits Allocated} mówi o szerokości bitowej
+pojedynczej próbki. W tym pliku każdy piksel (próbka) ma 16 bitów.
+
+
 \section{S-RGB-8-esopecho.dcm}
 Plik US-RGB-8-esopecho.dcm przedstawia jeden obraz z badania Echokardiograficznego.
 
 Plik ten jest kodowany w formacie explicit. Jego wielkość to około 90kb, z
-czego danych obrazowych jest 90\%. Plik używa grupowania elementów danych.
+czego danych obrazowych jest 99\%. Plik używa grupowania elementów danych.
 
 Jest to plik powstały podczas badania echokardiograficznego 5 listopada 1994 roku, o godzinie 14:30. Rejestracja została przeprowadzona przy pomocy urządzenia Acme Products.
 

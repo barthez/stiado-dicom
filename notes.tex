@@ -1,0 +1,66 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
+\usepackage{lmodern}
+
+\begin{document}
+
+\section{Wstęp do formatu DICOM}
+
+\textbf{DICOM} - standard przechowywania, drukowania i przesyłania obrazowych danych
+medycznych. Opracowany w roku 1993 jako rozwinięcie standardu ACR/NEMA. Poza
+samymi danymi obrazowymi (takimi jak zdjęcia rendgenowskie, USG, zapisami EKG
+etc.) Zawiera informacje o pacjencie jak również konstekst i opis danych
+obrazowych: opis badania, format i struktura obrazu.
+
+Dane opisowe zapisane są w specjalnie opracowanym \emph{języku}. Format DICOM
+ma zdefiniowane 27 standardowych typów danych, określanych jako VR (value
+representation). Każdy VR określa długość danych (w bajtach), format zapisu
+(binarnie, znakowo) oraz dozwolone znaki. Format DICOM nie ma ustandaryzowanego
+kodowania znaków, co może utrudniać między narodową wymianę danych.
+Ustandaryzowany jest za to porządek bajtów w zapisie binarnym, domyślnie
+Little Endian.
+
+Słownik DICOM definuje stuktury danych okreslające ich przeznaczenie. Struktury
+te (nazywane atrybutami, elementami DICOM lub elementami danych DICOM) opisane
+są 4 bajtowym tagiem, gdzie dwa pierwsze bajty przyporządkowują go do grupy
+danych, a dwa kolejne dokładnie go okreslają. Grupy elementów miały dużo
+większe znaczenie w starszych wersjach standardu, teraz, gdy zdefiniowanych
+jest ponad 2000 elementów (i ponad to każdy może definiować swoje), grupa
+elementu bardzo luźno opisuje jego przynalezność. Każdy element opórcz opisu
+danych które reprezentuje, ma też na stałe przypisany VR.
+
+Elementy DICOM mogę być kodowane na dwa sposoby: Implicite i Explicite. Format
+Implicite jest krótszy w zapisie ponieważ nie zawiera VR elementów. Pozwala to
+zaoszczędzić miejsce/transfer, ale staje się uciązliwe przy wymienianiu danych
+które definują własne niestandardowe elementy. Format Explicite słuzży do tego
+aby zapisać również VR co pozwala odczytać dane bez potrzeby otwierania
+słownika (choć i tak wtedy nie znamy przeznaczenia danych).
+
+\section{S-RGB-8-esopecho.dcm}
+Plik US-RGB-8-esopecho.dcm przedstawia jeden obraz z badania Echokardiograficznego.
+
+Plik ten jest kodowany w formacie explicit. Jego wielkość to około 90kb, z
+czego danych obrazowych jest 90\%. Plik używa grupowania elementów danych.
+
+Jest to plik powstały podczas badania echokardiograficznego 5 listopada 1994 roku, o godzinie 14:30. Rejestracja została przeprowadzona przy pomocy urządzenia Acme Products.
+
+W tym pliki dane pacjenta zostały usunięte, plik poddano anonimizacji.
+
+Pobieranie danych zostało zrealizowane za pomocą protokołu Quad Capture. Jest to protokół rejestracji dźwięku.
+
+Zawarty w pliku obraz jest obrazem nuer 107 z 2 serii danych.
+
+\textbf{Parametry obrazu.} Każdy piksel jest zapisany za pomocą trzech wartości. Pojedyncza wartość odpowiada jednemu z kolorów: czerwonego, niebieskiego lub zielonego. Piksele ułożone są obok siebie dla danego piksela. Rozmiar obrazu to 120 na 256 pikseli, z których każdy ma kształt prostokąta o proporcjach boków 4 do 3. Zapisane wartości pikseli są bez znaku.
+
+W pliku piskele są zapisane w przedstawiony sposób. Trzy wartości każdego piksela są ułożone obok siebie w pliku.
+
+\section{Wnioski}
+W plikach największą cześcią pod względem ilości danych są same obrazy, co oznacza, że dane opisowe o obrazie, dane o pacjencie, badaniu, nie są obciążające dany plik. Dzięki temu przechowywanie obrazów w formacie DICOM nie jest znacząco bardziej wymagające niż przechowywanie samych obrazów. Również przy transmisji obrazów najwięcej danych jest o samym obrazie i nie powoduje to spowolnienia transmisji przez dane opisujące obraz.
+
+Obrazy w większości nie są skompresowane. Jest to spowodowane tym, że przy użyciu kompresji stratnej można by było stracić ważne informacje medyczne. W jednym z trzech plików zastosowano kompresję z pomocą użycia mapy kolorów.
+
+Standard DICOM udostępnia możliwość dokładnego opisu jak powinien wyglądać obraz. Służą do tego specjalne parametry jak rozmiar piksela czy odległość pomiędzy pikselami.
+
+\end{document}

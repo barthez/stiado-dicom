@@ -56,6 +56,7 @@ uzyta siła pola magnetycznego, to 1.5. Pacjent podczas badania był w pozycji n
 wznak z głową do przodu.
 
 Obraz ma rozmiar 256x256 pikseli, gdzie odstęp między nimi to $0.859375 mm$.
+Obraz jest zapisany w palecie monochromatycznej.
 Wartości mieszczą się w zakresie od 0 do 884. Element DICOM \emph{(0028,0103) Pixel
 Representation} mówi o sposobie zapisu każdej próbki i może przyjmować 2
 wartości: $0000H$ - zapis jako \emph{unsigned integer} lib $0001H$ - zapis w
@@ -63,6 +64,27 @@ kodzie uzupełnień do dwóch. W tym pliku uzywany jest zapis w kodzie uzupełni
 do dwóch. Element \emph{(0028,0100) Bits Allocated} mówi o szerokości bitowej
 pojedynczej próbki. W tym pliku każdy piksel (próbka) ma 16 bitów.
 
+
+\section{US-PAN-8-10x-echo.dcm}
+Plik US-PAN-8-10x-echo.dcm zaawiera serię 10 obrazów z badania
+echokardiograficznego.
+
+Dane w pliku zapisane są w formacie explicite z grupowaniem elementów.
+
+Zapis badania został wykonany 30 stycznia 1994 roku, o godzinie 11.25 na
+sprzęcie firmy ACME Products.
+
+W pliku brak informacji o pacjencie - dane zostały zanonimizowane.
+
+Dane obrazowe to 10 kolejnych ramek zapisu echokardiografii. Każdy obraz ma
+rozmiar 430x600 pikseli. Obraz jest zapisany w palecie monochromatycznej. Kazdy
+piksel ma 8 bitów, reprezentowany jest jako \emph{unsigned integer} z
+kolejnością bitów big endian, najbardziej znaczący bit numer 7. Tablica
+przekodowań palety przekształca jedną z 256 wartości pikselna na 3 kolorowe 16
+bitowe piksele. Minimalna wartość dla tablicy przekodowań to $0$, wszystkie
+wartości mniejsze przekodowywane są na kolor odpowiadający wartości $0$, choć w
+tym pliku to nie ma znaczenia, ponieważ dane są przechowywane w postaci liczb
+całkowitych bez znaku.
 
 \section{S-RGB-8-esopecho.dcm}
 Plik US-RGB-8-esopecho.dcm przedstawia jeden obraz z badania Echokardiograficznego.

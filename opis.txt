@@ -13,6 +13,8 @@ Zawarty w pliku obraz jest obrazem nuer 107 z 2 serii danych.
 
 Parametry obrazu. Ka¿dy piksel jest zapisany za pomoc¹ trzech wartoœci. Pojedyncza wartoœæ odpowiada jednemu z kolorów: czerwonego, niebieskiego lub zielonego. Piksele u³o¿one s¹ obok siebie dla danego piksela. Rozmiar obrazu to 120 na 256 pikseli, z których ka¿dy ma kszta³t prostok¹ta o proporcjach boków 4 do 3. Zapisane wartoœci pikseli s¹ bez znaku.
 
+W pliku piskele s¹ zapisane w przedstawiony sposób. Trzy wartoœci ka¿dego piksela s¹ u³o¿one obok siebie w pliku.
+
 Wnioski:
 W plikach najwiêksz¹ czeœci¹ pod wzglêdem iloœci danych s¹ same obrazy, co oznacza, ¿e dane opisowe o obrazie, dane o pacjencie, badaniu, nie s¹ obci¹¿aj¹ce dany plik. Dziêki temu przechowywanie obrazów w formacie DICOM nie jest znacz¹co bardziej wymagaj¹ce ni¿ przechowywanie samych obrazów. Równie¿ przy transmisji obrazów najwiêcej danych jest o samym obrazie i nie powoduje to spowolnienia transmisji przez dane opisuj¹ce obraz.
 
